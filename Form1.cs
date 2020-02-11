@@ -21,16 +21,8 @@ namespace TodoApplication
                 string connectionString = @"Data Source=DESKTOP-U4J07QN\SQLEXPRESS;Integrated Security=False;Initial Catalog=Todos;User ID=sa;Password=programmer;";
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
-                MessageBox.Show("Connection Open !");
-
-                SqlCommand command;
-                SqlDataReader dataReader;
-                String sql = "";
-                sql = "SELECT * FROM Todos;";
-                command = new SqlCommand(sql, conn);
-                dataReader = command.ExecuteReader();
-                outputData(dataReader);
-
+                initializeTable(conn);
+                
                 conn.Close();
             }
             catch(SqlException e)
@@ -38,12 +30,20 @@ namespace TodoApplication
                 Console.WriteLine(e);
             }
         }
-        private void outputData(SqlDataReader dataReader)
+        private void initializeTable(SqlConnection conn)
         {
+            SqlCommand command;
+            SqlDataReader dataReader;
+            String sql = "";
+            sql = "EXECUTE getAllTodos;";
+            command = new SqlCommand(sql, conn);
+            dataReader = command.ExecuteReader();
             this.dataGridView1.ColumnCount = 6;
             this.dataGridView1.Columns[0].Name = "Todo ID";
             this.dataGridView1.Columns[1].Name = "Name";
+            this.dataGridView1.Columns[1].Width += 50;
             this.dataGridView1.Columns[2].Name = "Description";
+            this.dataGridView1.Columns[2].Width = 350;
             this.dataGridView1.Columns[3].Name = "User";
             this.dataGridView1.Columns[4].Name = "Date & Time";
             this.dataGridView1.Columns[5].Name = "Completed? (1=yes, 0=no)";
@@ -60,7 +60,11 @@ namespace TodoApplication
         }
         private void btnInsertTodo_Click(object sender, EventArgs e)
         {
-            
+            String name = this.entryTodoName.Text;
+            String description = this.entryTodoDescription.Text;
+            String user = this.entryUser.Text;
+            String datetime = this.entryTodoDateTime.Text;
+            Todo todo = new Todo(name, description, user, datetime);
         }
     }
 }
