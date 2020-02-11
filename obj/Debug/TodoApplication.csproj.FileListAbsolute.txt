@@ -1,0 +1,9 @@
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.csprojAssemblyReference.cache
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.mainWindow.resources
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.Properties.Resources.resources
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.csproj.GenerateResource.cache
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\bin\Debug\TodoApplication.exe.config
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\bin\Debug\TodoApplication.exe
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\bin\Debug\TodoApplication.pdb
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.exe
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.pdb
