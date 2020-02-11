@@ -65,7 +65,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(943, 493);
+            this.dataGridView1.Size = new System.Drawing.Size(973, 493);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnInsertTodo
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 723);
+            this.ClientSize = new System.Drawing.Size(997, 723);
             this.Controls.Add(this.entryUser);
             this.Controls.Add(this.btnGroupByUser);
             this.Controls.Add(this.entryTodoDescription);
