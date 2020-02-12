@@ -36,5 +36,10 @@ namespace TodoApplication
         {
             return this.dataReader;
         }
+
+        public void closeDataReader()
+        {
+            this.dataReader.Close();
+        }
     }
 }

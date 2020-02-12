@@ -112,6 +112,7 @@
             this.btnGroupByUser.TabIndex = 8;
             this.btnGroupByUser.Text = "Group by User";
             this.btnGroupByUser.UseVisualStyleBackColor = true;
+            this.btnGroupByUser.Click += new System.EventHandler(this.btnGroupByUser_Click);
             // 
             // entryUser
             // 
