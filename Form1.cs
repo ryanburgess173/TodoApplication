@@ -13,17 +13,13 @@ namespace TodoApplication
 {
     public partial class mainWindow : Form
     {
+        DatabaseManipulator dm = new DatabaseManipulator();
         public mainWindow()
         {
             try
             {
                 InitializeComponent();
-                string connectionString = @"Data Source=DESKTOP-U4J07QN\SQLEXPRESS;Integrated Security=False;Initial Catalog=Todos;User ID=sa;Password=programmer;";
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                initializeTable(conn);
-                
-                conn.Close();
+                initializeTable(dm.getConn());
             }
             catch(SqlException e)
             {
@@ -32,12 +28,20 @@ namespace TodoApplication
         }
         private void initializeTable(SqlConnection conn)
         {
-            SqlCommand command;
-            SqlDataReader dataReader;
-            String sql = "";
-            sql = "EXECUTE getAllTodos;";
-            command = new SqlCommand(sql, conn);
-            dataReader = command.ExecuteReader();
+            dm.setSQL("EXECUTE getAllTodos;");
+            dm.executeScript();
+            updateTable(dm.getDataReader());
+        }
+        private void btnInsertTodo_Click(object sender, EventArgs e)
+        {
+            String name = this.entryTodoName.Text;
+            String description = this.entryTodoDescription.Text;
+            String user = this.entryUser.Text;
+            String datetime = this.entryTodoDateTime.Text;
+            Todo todo = new Todo(name, description, user, datetime);
+        }
+        private void updateTable(SqlDataReader dataReader)
+        {
             this.dataGridView1.ColumnCount = 6;
             this.dataGridView1.Columns[0].Name = "Todo ID";
             this.dataGridView1.Columns[1].Name = "Name";
@@ -51,20 +55,12 @@ namespace TodoApplication
             while (dataReader.Read())
             {
                 this.dataGridView1.Rows.Add();
-                for(int i=0; i<6; i++)
+                for (int i = 0; i < 6; i++)
                 {
                     this.dataGridView1.Rows[counter].Cells[i].Value = dataReader.GetValue(i);
                 }
                 counter++;
             }
-        }
-        private void btnInsertTodo_Click(object sender, EventArgs e)
-        {
-            String name = this.entryTodoName.Text;
-            String description = this.entryTodoDescription.Text;
-            String user = this.entryUser.Text;
-            String datetime = this.entryTodoDateTime.Text;
-            Todo todo = new Todo(name, description, user, datetime);
         }
     }
 }

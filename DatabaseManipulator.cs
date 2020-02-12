@@ -31,5 +31,10 @@ namespace TodoApplication
             this.sql = "EXECUTE groupByUsers;";
             this.executeScript();
         }
+
+        public SqlDataReader getDataReader()
+        {
+            return this.dataReader;
+        }
     }
 }
