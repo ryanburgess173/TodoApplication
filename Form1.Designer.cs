@@ -35,7 +35,7 @@
             this.entryTodoName = new System.Windows.Forms.TextBox();
             this.entryTodoDateTime = new System.Windows.Forms.TextBox();
             this.entryTodoDescription = new System.Windows.Forms.RichTextBox();
-            this.btnGroupByUser = new System.Windows.Forms.Button();
+            this.btnTasksPerUser = new System.Windows.Forms.Button();
             this.entryUser = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             this.btnReset.TabIndex = 1;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // dataGridView1
             // 
@@ -97,22 +98,23 @@
             // 
             // entryTodoDescription
             // 
+            this.entryTodoDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entryTodoDescription.Location = new System.Drawing.Point(186, 547);
             this.entryTodoDescription.Name = "entryTodoDescription";
             this.entryTodoDescription.Size = new System.Drawing.Size(458, 79);
             this.entryTodoDescription.TabIndex = 6;
             this.entryTodoDescription.Text = "";
             // 
-            // btnGroupByUser
+            // btnTasksPerUser
             // 
-            this.btnGroupByUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGroupByUser.Location = new System.Drawing.Point(660, 515);
-            this.btnGroupByUser.Name = "btnGroupByUser";
-            this.btnGroupByUser.Size = new System.Drawing.Size(182, 46);
-            this.btnGroupByUser.TabIndex = 8;
-            this.btnGroupByUser.Text = "Group by User";
-            this.btnGroupByUser.UseVisualStyleBackColor = true;
-            this.btnGroupByUser.Click += new System.EventHandler(this.btnGroupByUser_Click);
+            this.btnTasksPerUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTasksPerUser.Location = new System.Drawing.Point(660, 515);
+            this.btnTasksPerUser.Name = "btnTasksPerUser";
+            this.btnTasksPerUser.Size = new System.Drawing.Size(182, 46);
+            this.btnTasksPerUser.TabIndex = 8;
+            this.btnTasksPerUser.Text = "Tasks Per User";
+            this.btnTasksPerUser.UseVisualStyleBackColor = true;
+            this.btnTasksPerUser.Click += new System.EventHandler(this.btnGroupByUser_Click);
             // 
             // entryUser
             // 
@@ -128,7 +130,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 723);
             this.Controls.Add(this.entryUser);
-            this.Controls.Add(this.btnGroupByUser);
+            this.Controls.Add(this.btnTasksPerUser);
             this.Controls.Add(this.entryTodoDescription);
             this.Controls.Add(this.entryTodoDateTime);
             this.Controls.Add(this.entryTodoName);
@@ -153,7 +155,7 @@
         private System.Windows.Forms.TextBox entryTodoName;
         private System.Windows.Forms.TextBox entryTodoDateTime;
         private System.Windows.Forms.RichTextBox entryTodoDescription;
-        private System.Windows.Forms.Button btnGroupByUser;
+        private System.Windows.Forms.Button btnTasksPerUser;
         private System.Windows.Forms.TextBox entryUser;
     }
 }
