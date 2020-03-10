@@ -13,13 +13,14 @@ namespace TodoApplication
 {
     public partial class mainWindow : Form
     {
-        DatabaseManipulator dm = new DatabaseManipulator();
+        const string USERNAME = "ryan";
         public mainWindow()
         {
             try
             {
                 InitializeComponent();
-                initializeTable(dm.getConn());
+                Session session = new Session();
+                initializeTable(session.getDatabaseManipulator().getConnection());
             }
             catch(SqlException e)
             {
@@ -40,7 +41,7 @@ namespace TodoApplication
             this.dataGridView1.Columns[5].Name = "Completed? (1=yes, 0=no)";
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
-            dm.setSQL("EXECUTE getAllTodos;");
+            dm.setSQL("EXECUTE getTodosForUser @username = '"+USERNAME+"';");
             dm.executeScript();
             updateTable(dm.getDataReader(), 6);
             dm.closeDataReader();

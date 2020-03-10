@@ -7,3 +7,4 @@ C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\bin\Debug\TodoApplic
 C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\bin\Debug\TodoApplication.pdb
 C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.exe
 C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.pdb
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication\obj\Debug\TodoApplication.LoginFrm.resources

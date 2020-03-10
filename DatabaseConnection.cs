@@ -28,7 +28,7 @@ namespace TodoApplication
             this.conn.Close();
         }
 
-        public SqlConnection getConn()
+        public SqlConnection getConnection()
         {
             return this.conn;
         }
