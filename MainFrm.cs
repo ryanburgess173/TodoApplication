@@ -13,14 +13,16 @@ namespace TodoApplication
 {
     public partial class mainWindow : Form
     {
-        const string USERNAME = "ryan";
-        public mainWindow()
+        private DatabaseManipulator dm;
+        private Session session;
+        public mainWindow(string username)
         {
             try
             {
                 InitializeComponent();
-                Session session = new Session();
-                initializeTable(session.getDatabaseManipulator().getConnection());
+                session = new Session(username);
+                this.dm = session.getDatabaseManipulator();
+                initializeTable(this.dm.getConnection());
             }
             catch(SqlException e)
             {
@@ -41,10 +43,10 @@ namespace TodoApplication
             this.dataGridView1.Columns[5].Name = "Completed? (1=yes, 0=no)";
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
-            dm.setSQL("EXECUTE getTodosForUser @username = '"+USERNAME+"';");
-            dm.executeScript();
-            updateTable(dm.getDataReader(), 6);
-            dm.closeDataReader();
+            this.dm.setSQL("EXECUTE getTodosForUser @username = '" + this.session.getUser() + "';");
+            this.dm.executeScript();
+            updateTable(this.dm.getDataReader(), 6);
+            this.dm.closeDataReader();
         }
         private void btnInsertTodo_Click(object sender, EventArgs e)
         {
@@ -85,7 +87,7 @@ namespace TodoApplication
         {
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
-            initializeTable(dm.getConn());
+            initializeTable(this.dm.getConnection());
         }
     }
 }

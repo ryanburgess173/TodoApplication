@@ -50,7 +50,7 @@
             // 
             this.usernameLbl.AutoSize = true;
             this.usernameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLbl.Location = new System.Drawing.Point(13, 13);
+            this.usernameLbl.Location = new System.Drawing.Point(8, 9);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(97, 24);
             this.usernameLbl.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             this.passwordLbl.AutoSize = true;
             this.passwordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLbl.Location = new System.Drawing.Point(13, 100);
+            this.passwordLbl.Location = new System.Drawing.Point(8, 96);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(92, 24);
             this.passwordLbl.TabIndex = 2;

@@ -11,14 +11,19 @@ namespace TodoApplication
         private DatabaseManipulator dm;
         private string user;
 
-        public Session()
+        public Session(string username)
         {
             this.dm = new DatabaseManipulator();
+            this.user = username;
         }
 
         public void setUser(string user)
         {
             this.user = user;
+        }
+        public string getUser()
+        {
+            return this.user;
         }
 
         public DatabaseManipulator getDatabaseManipulator()

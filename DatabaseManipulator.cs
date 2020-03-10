@@ -22,7 +22,7 @@ namespace TodoApplication
 
         public void executeScript()
         {
-            this.command = new SqlCommand(this.sql, this.getConn());
+            this.command = new SqlCommand(this.sql, this.getConnection());
             this.dataReader = command.ExecuteReader();
         }
 

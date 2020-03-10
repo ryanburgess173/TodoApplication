@@ -16,14 +16,7 @@ namespace TodoApplication
         public LoginFrm()
         {
             InitializeComponent();
-            try
-            {
-                this.dm = new DatabaseManipulator();
-            }
-            catch(Exception exception)
-            {
-                Console.WriteLine(exception);
-            }
+            txtPassword.PasswordChar = '*';
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -42,8 +35,21 @@ namespace TodoApplication
             }
             try
             {
+                this.dm = new DatabaseManipulator();
                 this.dm.setSQL("EXECUTE loginCredentialExistence @Username = '" + txtUsername.Text + "', @Password = '" + txtPassword.Text + "';");
-                this.dm.getDataReader();
+                this.dm.executeScript();
+                if(this.dm.getDataReader().Read() != false)
+                {
+                    this.Hide();
+                    var mainFrm = new mainWindow(txtUsername.Text);
+                    mainFrm.Closed += (s, args) => this.Close();
+                    mainFrm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Username and/or password incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
             }
             catch(Exception exception)
             {
