@@ -37,7 +37,7 @@ namespace TodoApplication
             {
                 this.dm = new DatabaseManipulator();
                 this.dm.setSQL("EXECUTE loginCredentialExistence @Username = '" + txtUsername.Text + "', @Password = '" + txtPassword.Text + "';");
-                this.dm.executeScript();
+                this.dm.executeQueryScript();
                 if(this.dm.getDataReader().Read() != false)
                 {
                     this.Hide();

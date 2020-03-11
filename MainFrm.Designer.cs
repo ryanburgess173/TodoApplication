@@ -36,7 +36,6 @@
             this.entryTodoDateTime = new System.Windows.Forms.TextBox();
             this.entryTodoDescription = new System.Windows.Forms.RichTextBox();
             this.btnTasksPerUser = new System.Windows.Forms.Button();
-            this.entryUser = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +44,7 @@
             this.btnTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.Location = new System.Drawing.Point(12, 515);
             this.btnTotal.Name = "btnTotal";
-            this.btnTotal.Size = new System.Drawing.Size(168, 60);
+            this.btnTotal.Size = new System.Drawing.Size(152, 45);
             this.btnTotal.TabIndex = 0;
             this.btnTotal.Text = "Total Time";
             this.btnTotal.UseVisualStyleBackColor = true;
@@ -53,9 +52,9 @@
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(12, 647);
+            this.btnReset.Location = new System.Drawing.Point(12, 617);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(168, 60);
+            this.btnReset.Size = new System.Drawing.Size(152, 45);
             this.btnReset.TabIndex = 1;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -72,9 +71,9 @@
             // btnInsertTodo
             // 
             this.btnInsertTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsertTodo.Location = new System.Drawing.Point(12, 580);
+            this.btnInsertTodo.Location = new System.Drawing.Point(444, 632);
             this.btnInsertTodo.Name = "btnInsertTodo";
-            this.btnInsertTodo.Size = new System.Drawing.Size(168, 60);
+            this.btnInsertTodo.Size = new System.Drawing.Size(200, 39);
             this.btnInsertTodo.TabIndex = 3;
             this.btnInsertTodo.Text = "Insert Todo";
             this.btnInsertTodo.UseVisualStyleBackColor = true;
@@ -91,7 +90,7 @@
             // entryTodoDateTime
             // 
             this.entryTodoDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entryTodoDateTime.Location = new System.Drawing.Point(186, 664);
+            this.entryTodoDateTime.Location = new System.Drawing.Point(186, 632);
             this.entryTodoDateTime.Name = "entryTodoDateTime";
             this.entryTodoDateTime.Size = new System.Drawing.Size(252, 26);
             this.entryTodoDateTime.TabIndex = 5;
@@ -108,28 +107,19 @@
             // btnTasksPerUser
             // 
             this.btnTasksPerUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTasksPerUser.Location = new System.Drawing.Point(660, 515);
+            this.btnTasksPerUser.Location = new System.Drawing.Point(12, 566);
             this.btnTasksPerUser.Name = "btnTasksPerUser";
-            this.btnTasksPerUser.Size = new System.Drawing.Size(182, 46);
+            this.btnTasksPerUser.Size = new System.Drawing.Size(152, 45);
             this.btnTasksPerUser.TabIndex = 8;
             this.btnTasksPerUser.Text = "Tasks Per User";
             this.btnTasksPerUser.UseVisualStyleBackColor = true;
             this.btnTasksPerUser.Click += new System.EventHandler(this.btnGroupByUser_Click);
             // 
-            // entryUser
-            // 
-            this.entryUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entryUser.Location = new System.Drawing.Point(186, 632);
-            this.entryUser.Name = "entryUser";
-            this.entryUser.Size = new System.Drawing.Size(252, 26);
-            this.entryUser.TabIndex = 9;
-            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 723);
-            this.Controls.Add(this.entryUser);
+            this.ClientSize = new System.Drawing.Size(997, 706);
             this.Controls.Add(this.btnTasksPerUser);
             this.Controls.Add(this.entryTodoDescription);
             this.Controls.Add(this.entryTodoDateTime);
@@ -156,7 +146,6 @@
         private System.Windows.Forms.TextBox entryTodoDateTime;
         private System.Windows.Forms.RichTextBox entryTodoDescription;
         private System.Windows.Forms.Button btnTasksPerUser;
-        private System.Windows.Forms.TextBox entryUser;
     }
 }
 

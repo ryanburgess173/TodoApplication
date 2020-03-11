@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TodoApplication
@@ -44,7 +37,8 @@ namespace TodoApplication
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
             this.dm.setSQL("EXECUTE getTodosForUser @username = '" + this.session.getUser() + "';");
-            this.dm.executeScript();
+            string result = this.dm.executeQueryScript();
+            MessageBox.Show(result);
             updateTable(this.dm.getDataReader(), 6);
             this.dm.closeDataReader();
         }
@@ -52,9 +46,12 @@ namespace TodoApplication
         {
             String name = this.entryTodoName.Text;
             String description = this.entryTodoDescription.Text;
-            String user = this.entryUser.Text;
+            String user = this.session.getUser();
             String datetime = this.entryTodoDateTime.Text;
             Todo todo = new Todo(name, description, user, datetime);
+            this.dm.setSQL("INSERT INTO Todos(Name, Description, UserCreatedBy, DateTime) VALUES('"+name+"', '"+description+"', '"+user+"', '"+datetime+"',)");
+            string result = this.dm.executeInsertScript();
+            MessageBox.Show(result);
         }
         private void updateTable(SqlDataReader dataReader, int columnCount)
         {
@@ -75,7 +72,8 @@ namespace TodoApplication
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
             dm.setSQL("EXECUTE groupByUsers;");
-            dm.executeScript();
+            string result = dm.executeQueryScript();
+            MessageBox.Show(result);
             this.dataGridView1.ColumnCount = 2;
             this.dataGridView1.Columns[0].Name = "User";
             this.dataGridView1.Columns[1].Name = "Tasks Count";
