@@ -6,21 +6,19 @@ namespace TodoApplication
 {
     public partial class mainWindow : Form
     {
-        private DatabaseManipulator dm;
         private Session session;
         public mainWindow(string username)
         {
             try
             {
                 InitializeComponent();
-                session = new Session(username);
-                this.dm = session.getDatabaseManipulator();
-                initializeTable(this.dm.getConnection());
+                this.session = new Session(username);
+                initializeTable(this.session.getDatabaseManipulator().getConnection());
             }
             catch(SqlException e)
             {
                 Console.WriteLine(e);
-            }
+            } 
         }
         private void initializeTable(SqlConnection conn)
         {
@@ -36,11 +34,12 @@ namespace TodoApplication
             this.dataGridView1.Columns[5].Name = "Completed? (1=yes, 0=no)";
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
-            this.dm.setSQL("EXECUTE getTodosForUser @username = '" + this.session.getUser() + "';");
-            string result = this.dm.executeQueryScript();
+            this.session.getDatabaseManipulator().setSQL("EXECUTE getTodosForUser @username = '" + this.session.getUser() + "';");
+            string result = this.session.getDatabaseManipulator().executeQueryScript();
             MessageBox.Show(result);
-            updateTable(this.dm.getDataReader(), 6);
-            this.dm.closeDataReader();
+            updateTable(this.session.getDatabaseManipulator().getDataReader(), 6);
+            this.session.getDatabaseManipulator().closeDataReader();
+            this.session.getDatabaseManipulator().newDataReader();
         }
         private void btnInsertTodo_Click(object sender, EventArgs e)
         {
@@ -49,9 +48,13 @@ namespace TodoApplication
             String user = this.session.getUser();
             String datetime = this.entryTodoDateTime.Text;
             Todo todo = new Todo(name, description, user, datetime);
-            this.dm.setSQL("INSERT INTO Todos(Name, Description, UserCreatedBy, DateTime) VALUES('"+name+"', '"+description+"', '"+user+"', '"+datetime+"',)");
-            string result = this.dm.executeInsertScript();
-            MessageBox.Show(result);
+            this.session.getDatabaseManipulator().setSQL("INSERT INTO dbo.Todos(Name, Description, UserCreatedBy, DateTime) VALUES('"+name+"', '"+description+"', '"+user+"', '"+datetime+"');");
+            string result = this.session.getDatabaseManipulator().executeInsertScript();
+            Console.WriteLine(result);
+            this.entryTodoName.Text = "";
+            this.entryTodoDescription.Text = "";
+            this.entryTodoDateTime.Text = "";
+            this.updateTable(this.session.getDatabaseManipulator().getDataReader(), 6);
         }
         private void updateTable(SqlDataReader dataReader, int columnCount)
         {
@@ -71,21 +74,22 @@ namespace TodoApplication
         {
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
-            dm.setSQL("EXECUTE groupByUsers;");
-            string result = dm.executeQueryScript();
-            MessageBox.Show(result);
+            this.session.getDatabaseManipulator().setSQL("EXECUTE groupByUsers;");
+            string result = this.session.getDatabaseManipulator().executeQueryScript();
+            Console.WriteLine(result);
             this.dataGridView1.ColumnCount = 2;
             this.dataGridView1.Columns[0].Name = "User";
             this.dataGridView1.Columns[1].Name = "Tasks Count";
-            updateTable(dm.getDataReader(), 2);
-            dm.closeDataReader();
+            updateTable(this.session.getDatabaseManipulator().getDataReader(), 2);
+            this.session.getDatabaseManipulator().closeDataReader();
+            this.session.getDatabaseManipulator().newDataReader();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             this.dataGridView1.Rows.Clear();
             this.dataGridView1.Refresh();
-            initializeTable(this.dm.getConnection());
+            initializeTable(this.session.getDatabaseManipulator().getConnection());
         }
     }
 }
