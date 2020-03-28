@@ -18,7 +18,7 @@ namespace TodoApplication
 
         public DatabaseConnection()
         {
-            this.connectionString = @"Data Source=DESKTOP-U4J07QN\SQLEXPRESS;Integrated Security=False;Initial Catalog=Todos;User ID=sa;Password=programmer;MultipleActiveResultSets=True;";
+            this.connectionString = @"Data Source=DESKTOP-U4J07QN\SQLEXPRESS;Integrated Security=False;Initial Catalog=Todos;User ID=sa;Password=programmer2;MultipleActiveResultSets=True;";
             this.conn = new SqlConnection(connectionString);
             this.conn.Open();
         }

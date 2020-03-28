@@ -1,0 +1,16 @@
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\TodoApplication.Test.dll
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\TodoApplication.Test.pdb
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\TodoApplication.exe
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\TodoApplication.pdb
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\TodoApplication.exe.config
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\obj\Debug\TodoApplication.Test.csprojAssemblyReference.cache
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\obj\Debug\TodoApplication.Test.csproj.CopyComplete
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\obj\Debug\TodoApplication.Test.dll
+C:\Users\ryanb\source\repos\TodoApplication\TodoApplication.Test\obj\Debug\TodoApplication.Test.pdb
