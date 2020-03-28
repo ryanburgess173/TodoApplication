@@ -18,7 +18,7 @@ namespace TodoApplication
             catch(SqlException e)
             {
                 Console.WriteLine(e);
-            } 
+            }
         }
         private void initializeTable(SqlConnection conn)
         {
@@ -47,14 +47,21 @@ namespace TodoApplication
             String description = this.entryTodoDescription.Text;
             String user = this.session.getUser();
             String datetime = this.entryTodoDateTime.Text;
-            Todo todo = new Todo(name, description, user, datetime);
-            this.session.getDatabaseManipulator().setSQL("INSERT INTO dbo.Todos(Name, Description, UserCreatedBy, DateTime) VALUES('"+name+"', '"+description+"', '"+user+"', '"+datetime+"');");
-            string result = this.session.getDatabaseManipulator().executeInsertScript();
-            Console.WriteLine(result);
-            this.entryTodoName.Text = "";
-            this.entryTodoDescription.Text = "";
-            this.entryTodoDateTime.Text = "";
-            this.updateTable(this.session.getDatabaseManipulator().getDataReader(), 6);
+            if (!name.Equals("") && !description.Equals("") && !datetime.Equals(""))
+            {
+                Todo todo = new Todo(name, description, user, datetime);
+                this.session.getDatabaseManipulator().setSQL("INSERT INTO dbo.Todos(Name, Description, UserCreatedBy, DateTime) VALUES('" + name + "', '" + description + "', '" + user + "', '" + datetime + "');");
+                string result = this.session.getDatabaseManipulator().executeInsertScript();
+                Console.WriteLine(result);
+                this.entryTodoName.Text = "";
+                this.entryTodoDescription.Text = "";
+                this.entryTodoDateTime.Text = "";
+                this.updateTable(this.session.getDatabaseManipulator().getDataReader(), 6);
+            }
+            else
+            {
+                MessageBox.Show("Finish filling in the info to insert a Todo!", "Error");
+            }
         }
         private void updateTable(SqlDataReader dataReader, int columnCount)
         {
